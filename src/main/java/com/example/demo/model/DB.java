@@ -5,14 +5,16 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class DB {
 
-    private List<Person> people = new ArrayList<>();
+    private Map<String, Person> people = new HashMap<>();
 
-    public List<Person> getPeople() {
+    public Map<String, Person> getPeople() {
         return people;
     }
 
@@ -27,10 +29,10 @@ public class DB {
         Person pedro = new Person("Pedro", "Rodriguez", pedroDoc);
         Person laura = new Person("Laura", "Hernandez", lauraDoc);
         Person natalia = new Person("Natalia", "Ramirez");
-        people.add(juan);
-        people.add(pedro);
-        people.add(laura);
-        people.add(natalia);
+        people.put(juan.getId(), juan);
+        people.put(pedro.getId(), pedro);
+        people.put(laura.getId(), laura);
+        people.put(natalia.getId(), natalia);
     }
 
 }

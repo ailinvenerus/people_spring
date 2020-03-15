@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.http.ResponseEntity.*;
 
@@ -19,7 +21,7 @@ public class Controller {
     private Service service;
 
     @GetMapping("/people")
-    public List<Person> getPeople() {
+    public Map<String , Person> getPeople() {
         return service.getPeople();
     }
 
@@ -53,12 +55,18 @@ public class Controller {
     @PostMapping("people/{id}/document")
     public ResponseEntity addDocument(@PathVariable String id, @RequestBody Document document) {
         service.addDocument(id, document);
-        return noContent().build();
+        return ok(service.getPersonById(id).getDocument());
     }
 
     @GetMapping("people/{id}/document")
     public ResponseEntity getDocument(@PathVariable String id) {
         return ok(service.getPersonById(id).getDocument());
+    }
+
+    @PutMapping("people/{id}/document")
+    public ResponseEntity putDocument(@PathVariable String id, @RequestBody Document document) {
+        service.updateDocument(id, document);
+        return noContent().build();
     }
 
 }
