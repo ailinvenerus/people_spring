@@ -19,8 +19,8 @@ public class Controller {
     private Service service;
 
     @GetMapping("/people")
-    public List<Person> getPersons() {
-        return service.getPersons();
+    public List<Person> getPeople() {
+        return service.getPeople();
     }
 
     @GetMapping("/people/{id}")
@@ -51,10 +51,15 @@ public class Controller {
         return noContent().build();
     }
 
-    @PostMapping("people/{id}")
+    @PostMapping("people/{id}/document")
     public ResponseEntity addDocument(@PathVariable String id, @RequestBody Document document) {
         service.addDocument(id, document);
         return noContent().build();
+    }
+
+    @GetMapping("people/{id}/document")
+    public ResponseEntity getDocument(@PathVariable String id) {
+        return ok(service.getPersonById(id).getDocument());
     }
 
 }

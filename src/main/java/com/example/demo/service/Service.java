@@ -15,21 +15,21 @@ public class Service {
     @Autowired
     private DB db;
 
-    public List<Person> getPersons() {
-        return db.getPersons();
+    public List<Person> getPeople() {
+        return db.getPeople();
     }
 
     public Person getPersonById(String id) {
-        return db.getPersons().stream().filter(p -> id.equals(p.getId())).findFirst().orElseThrow(() -> new PersonWithIdNotFound("Person with id not found"));
+        return db.getPeople().stream().filter(p -> id.equals(p.getId())).findFirst().orElseThrow(() -> new PersonWithIdNotFound("Person with id " + id + " not found"));
     }
 
     public void addPerson(Person person) {
-        db.getPersons().add(person);
+        db.getPeople().add(person);
     }
 
     public void deletePerson(String id) {
         Person personToDelete = getPersonById(id);
-        db.getPersons().remove(personToDelete);
+        db.getPeople().remove(personToDelete);
     }
 
     public void updatePerson(Person person, String id) {

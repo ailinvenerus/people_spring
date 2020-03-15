@@ -10,10 +10,10 @@ import java.util.List;
 @Component
 public class DB {
 
-    private List<Person> persons = new ArrayList<>();
+    private List<Person> people = new ArrayList<>();
 
-    public List<Person> getPersons() {
-        return persons;
+    public List<Person> getPeople() {
+        return people;
     }
 
     public DB() {
@@ -27,10 +27,10 @@ public class DB {
         Person pedro = new Person("Pedro", "Rodriguez", pedroDoc);
         Person laura = new Person("Laura", "Hernandez", lauraDoc);
         Person natalia = new Person("Natalia", "Ramirez");
-        persons.add(juan);
-        persons.add(pedro);
-        persons.add(laura);
-        persons.add(natalia);
+        people.add(juan);
+        people.add(pedro);
+        people.add(laura);
+        people.add(natalia);
     }
 
 }
