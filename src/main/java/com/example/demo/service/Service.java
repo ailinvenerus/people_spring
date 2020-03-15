@@ -23,8 +23,10 @@ public class Service {
         return db.getPeople().stream().filter(p -> id.equals(p.getId())).findFirst().orElseThrow(() -> new PersonWithIdNotFound("Person with id " + id + " not found"));
     }
 
-    public void addPerson(Person person) {
-        db.getPeople().add(person);
+    public String addPerson(Person person) {
+        Person person1 = new Person(person.getFirstName(), person.getLastName(), person.getDocument());
+        db.getPeople().add(person1);
+        return person1.getId();
     }
 
     public void deletePerson(String id) {

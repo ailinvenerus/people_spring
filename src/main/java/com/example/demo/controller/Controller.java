@@ -34,9 +34,8 @@ public class Controller {
 
     @PostMapping("/people")
     public ResponseEntity postPerson(@RequestBody Person person) {
-        Person person1 = new Person(person.getFirstName(), person.getLastName(), person.getDocument());
-        service.addPerson(person1);
-        return ok(service.getPersonById(person1.getId()));
+        String id = service.addPerson(person);
+        return ok(service.getPersonById(id));
     }
 
     @DeleteMapping("/people/{id}")
