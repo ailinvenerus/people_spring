@@ -47,4 +47,20 @@ public class Document {
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }

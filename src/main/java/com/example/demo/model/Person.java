@@ -51,4 +51,12 @@ public class Person {
     public void setDocument(Document document) {
         this.document = document;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }
