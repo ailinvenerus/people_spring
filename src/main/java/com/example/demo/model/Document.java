@@ -12,14 +12,6 @@ public class Document {
     private String countryCode;
     private LocalDate dateOfBirth;
 
-//    public Document(String id, String type, String number, String countryCode, LocalDate dateOfBirth) {
-//        this.id = id;
-//        this.type = type;
-//        this.number = number;
-//        this.countryCode = countryCode;
-//        this.dateOfBirth = dateOfBirth;
-//    }
-
     public Document(String type, String number, String countryCode, LocalDate dateOfBirth) {
         this.id = UUID.randomUUID().toString();
         this.type = type;
